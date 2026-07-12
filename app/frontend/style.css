@@ -1,0 +1,37 @@
+body{
+    backfround-color: #0f172a;
+    color:#e2e8f0;
+    font-family: 'Courier New', 'Courier New', Courier, monospace;
+    padding: 20px;
+}
+header h1 {
+    color:#f59e0b;
+    text-align: center;
+    border-bottom: 2px solid #334155;
+    padding-bottom: 10px;
+}
+.control-box {
+    background-color: #1e293b;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+#flood-btn {
+    background-color: #ef4444;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 4px;
+    cursor: pointer;
+}
+#log-terminal{
+    height:350px;
+    overflow-y: auto;
+    font-size: 14px;
+    line-height: 1.6;
+}
+.success { color: #10b981; margin: 4px 0;}
+.fail { color: #f43f5e; margin: 4px 0;}

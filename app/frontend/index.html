@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charser=""UTF-8">
+    <meta name=""viewport" content="width=device-width, initial-scale=1.0">
+    <title>Distributed Engine Operations Dashboard</title>
+</head>
+<body>
+    <header>
+        <h1> High-Throughput Distributed System Dashboard</h1>
+    </header>
+    <main>
+        <section class="control-box">
+            <h2>Simulate Concurrent Traffic Loop</h2>
+            <p>Simulate sudden flash sale load spikes by bombarding the backend with 15 simultaneous orders.</p>
+            <button id="flood-btn" onclick="fireFlashSaleTraffic()"> Trigger Concurrent Traffic Storm</button>
+            </section>
+        <section class="logs-container">
+            <h2>Live Event Pipeline Loga</h2>
+            <div id="log-terminal">Waiting for system event trigger...</div>
+        </section>
+    </main>
+    <script>
+        async function fireFlashSaleTraffic() {
+            const terminal = document.getElementById(log-terminal);
+            terminal.innerHTML = "Initiating parallel request load generation...<br>";
+            // Create an array of 15 simultaneous identical checkout requests
+            const requests =[];
+            for (let i=1; i<=15; i++) {
+                requests.push(
+                    fetch('http:127.0.0', {
+                        method: 'Post',
+                        headers: {'Content-Type': 'application/json'},}
+                        body: JSON.stringify{product_id:1, email: `buyer_${i}@amazon.com`})
+                )
+                     .then(res =>res.json().then(data =>({ status: res.status, data})))
+                
+            }
+        }
+        // Execute all Http network fetch processes in concurrent parallel batches
+        const outcomes = await Promise.all(requests);
+        outcomes.forEach(outcome, idx) =>{
+            if(outcome.status ===222 || outcome.status ===202) {
+                terminal.innerHTML +=`<p class="success">[@{timestamp}] Request ${idx+1}: Suucess! Order ID: ${outcome.data.order_id}(Pushed to Queue Engine )</p>`;
+            } else {
+                terminal.innerHTML +=`<p class ="fail">[${timmestamp}] Request ${idx+1}: Rejected! Cause: ${outcome.data.detail || "SoldOut"}</p>`;
+        
+            }    
+        }
+    </script>
+    
+</body>
+</html>
