@@ -1,1 +1,3 @@
-app/.env
+_pycache_/
+*.pyc
+venv/
